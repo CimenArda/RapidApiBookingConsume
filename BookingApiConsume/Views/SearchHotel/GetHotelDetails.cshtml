@@ -1,0 +1,108 @@
+﻿@model HotelDetailsViewModel
+@{
+    ViewData["Title"] = "GetHotelDetails";
+    Layout = "~/Views/Shared/_SonaLayout.cshtml";
+}
+
+
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="room-details-item">
+                    <img src="@Model.photoUrl.Replace("square60","square480")" alt="">
+                    <div class="rd-text">
+                        <div class="rd-title">
+                            <h3>@Model.data.hotel_name</h3>
+                            <div class="rdt-right">
+                                <div class="rating">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star-half_alt"></i>
+                                </div>
+                                <a href="#">Şimdi Kirala</a>
+                            </div>
+                        </div>
+                        <h2>159<span>/ @Model.data.currency_code</span></h2>
+                        <table>
+                            <tbody>
+                               
+                                <tr>
+                                    <td class="r-o">Ülke:</td>
+                                    <td>@Model.data.country_trans</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Para Birimi:</td>
+                                    <td>@Model.data.currency_code</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Şehir:</td>
+                                    <td>@Model.data.city</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o"></td>
+
+                                    <td><a href="@Model.data.url" class="btn btn-outline-primary">Otelin Sitesine Git</a>  </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="f-para">
+                            Otelimiz, misafirlerimize modern konforun ve sıcak bir misafirperverliğin kusursuz bir birleşimini sunmayı amaçlayan özel bir konaklama deneyimi vaat etmektedir. Şehrin kalbinde stratejik bir konumda yer alan tesisimiz, iş ve tatil amaçlı seyahat edenler için eşsiz bir buluşma noktasıdır. Geniş ve özenle tasarlanmış odalarımız, huzurlu bir atmosferde dinlenmeniz için ihtiyacınız olan tüm detayları barındırır. Her odada yüksek hızlı internet erişimi, konforlu yataklar, şık dekorasyon, minibar ve gelişmiş multimedya sistemleri gibi imkanlar sunulmaktadır. Ayrıca otelimiz, dünya mutfaklarından özenle seçilmiş lezzetlerin sunulduğu restoranımızda, gastronomi tutkunları için unutulmaz bir deneyim yaratır. Gün boyu enerji dolu hissetmek isteyen misafirlerimiz için fitness merkezimiz ve stres atmak isteyenler için rahatlatıcı bir spa alanı mevcuttur. İş toplantılarından özel etkinliklere kadar farklı ihtiyaçlara cevap veren toplantı ve balo salonlarımız, teknik donanımı ve profesyonel hizmet anlayışıyla beklentilerin ötesine geçer. Doğayla iç içe yeşil alanlarımız ve şehir manzaralı terasımız, günün yorgunluğunu atabileceğiniz huzurlu bir kaçış noktasıdır. Her detayında misafir memnuniyetini ön planda tutan otelimiz, ulaşım kolaylığı sağlayan merkezi konumu ve güler yüzlü personeliyle siz değerli misafirlerimizi ağırlamaktan büyük mutluluk duyar. Otelimizde geçireceğiniz her anın, unutulmaz anılara dönüşmesi için buradayız.
+                        </p>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="col-lg-4">
+                <div class="room-booking">
+                    <h3>Daha Farklı bir Rezervasyon </h3>
+                    <form action="#">
+                        <div class="select-option">
+                            <label for="room">Seçilebilecek Şehirler:</label>
+                            <select id="room">
+                                <option value="">İstanbul</option>
+                            </select>
+                        </div>
+                        <div class="check-date">
+                            <label for="date-in">Giriş Tarihi:</label>
+                            <input type="text" class="date-input" id="date-in">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="check-date">
+                            <label for="date-out">Çıkış Tarihi:</label>
+                            <input type="text" class="date-input" id="date-out">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <div class="select-option">
+                            <label for="guest">Misafirler:</label>
+                            <select id="guest">
+                                <option value="">3 Yetişkin</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Otelleri Getir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

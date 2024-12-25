@@ -1,0 +1,82 @@
+﻿@model SearchHotelViewModel
+@{
+    ViewData["Title"] = "HotelResults";
+    Layout = "~/Views/Shared/_SonaLayout.cshtml";
+}
+
+<style>
+    .room-item {
+        width: 400px;
+        height: 1050px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+        .room-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+    .ri-text {
+        padding: 10px;
+    }
+</style>
+
+<section class="rooms-section spad">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.data.hotels)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        @if (item.property.photoUrls != null && item.property.photoUrls.Any())
+                        {
+                            <img src="@item.property.photoUrls[0]" alt="Hotel Photo" width="100" />
+                        }
+                        else
+                        {
+                            <span>Fotoğraf yok</span>
+                        }                        <div class="ri-text">
+                            <h4>@item.property.name</h4>
+                            <h3>159<span>/@item.property.currency</span></h3>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Puanı:</td>
+                                        <td>@item.property.reviewScore</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Puan Karşılığı:</td>
+                                        <td>@item.property.reviewScoreWord</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Hizmetleri:</td>
+                                        <td>Wifi, Television, Bathroom,...</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Mini Bilgiler:</td>
+                                        <td>@item.accessibilityLabel</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="@Url.Action("GetHotelDetails", "SearchHotel", new { hotelId = item.hotel_id, arrivalDate = "2024-12-27", departureDate = "2024-12-29", adults = 1 ,photoUrl = item.property.photoUrls[0]   })" class="btn btn-primary">
+                                Detayları Gör
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+   
+            
+        </div>
+    </div>
+</section>

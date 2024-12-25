@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_SonaLayout.cshtml";
+    var cities = ViewBag.Cities as List<SelectListItem>;
+
+}
+  <section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <h1>Sona İle Uygun Otel Bul</h1>
+                    <p>
+                        İşte uluslararası öneriler de dahil olmak üzere en iyi otel rezervasyon siteleri
+                        seyahat etmek ve düşük fiyatlı otel odaları bulmak için.
+                    </p>
+                    <a href="#" class="primary-btn">Şimdi Keşfet</a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                <div class="booking-form">
+                    <h3>Uygun Otelini Bul</h3>
+                    <form method="post" action="/SearchHotel/SearchHotels">
+                        <div class="select-option">
+                            <label for="city">Otel Arayabileceğin  Şehirler:</label>
+                            <select id="city" name="city" class="form-control">
+                                @foreach (var city in cities)
+                                {
+                                    <option value="@city.Value">@city.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="check-date">
+                            <label for="arrival_date">Giriş Tarihi:</label>
+                            <input type="date" id="arrival_date" name="arrival_date" class="form-control" required />
+                        </div>
+                        <div class="check-date">
+                            <label for="departure_date">Çıkış Tarihi:</label>
+                            <input type="date" id="departure_date" name="departure_date" class="form-control" required />
+
+                        </div>
+                        <div class="check-date">
+                            <label for="adults">Kişi Sayısı:</label>
+                            <input type="number" id="adults" name="adults" class="form-control" min="1" value="1" required />
+                        </div>
+                        <button type="submit">Uygun Otelleri Ara</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-1.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-2.jpg"></div>
+        <div class="hs-item set-bg" data-setbg="/sona-master/img/hero/hero-3.jpg"></div>
+    </div>
+</section>  
